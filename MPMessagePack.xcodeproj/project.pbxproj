@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -70,6 +70,7 @@
 		33220B341CFF954F00F3C3DA /* MPRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 009D441F1BCEFE270030DD7E /* MPRequestor.m */; };
 		33220B351CFF954F00F3C3DA /* MPDispatchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 009D441A1BCEF7560030DD7E /* MPDispatchRequest.h */; };
 		33220B361CFF954F00F3C3DA /* MPDispatchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 009D441B1BCEF7560030DD7E /* MPDispatchRequest.m */; };
+		E7D2073225E8FFB3006008C4 /* GHODictionary.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D2073025E8FFA9006008C4 /* GHODictionary.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		00FB32E51966240B0060AF33 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		33220B171CFF952F00F3C3DA /* MPMessagePack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPMessagePack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33220B1B1CFF952F00F3C3DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7D2073025E8FFA9006008C4 /* GHODictionary.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GHODictionary.xcframework; path = Carthage/Build/GHODictionary.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D2073225E8FFB3006008C4 /* GHODictionary.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +228,7 @@
 		00FB32BE19661A860060AF33 = {
 			isa = PBXGroup;
 			children = (
+				E7D2073025E8FFA9006008C4 /* GHODictionary.xcframework */,
 				0031261D1E0B482400657DAF /* Cartfile */,
 				0031260B1E0B443300657DAF /* Podfile */,
 				006555BB19663A1600288AE7 /* MPMessagePack.podspec */,
@@ -236,6 +240,7 @@
 				005F67AE1B15039100898B3C /* MPMessagePackTests */,
 				33220B181CFF952F00F3C3DA /* MPMessagePack iOS */,
 				00FB32C819661A860060AF33 /* Products */,
+				E7D2073125E8FFB3006008C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +283,13 @@
 				33220B1B1CFF952F00F3C3DA /* Info.plist */,
 			);
 			path = "MPMessagePack iOS";
+			sourceTree = "<group>";
+		};
+		E7D2073125E8FFB3006008C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,7 +430,7 @@
 					};
 					003126101E0B456800657DAF = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					005F67AC1B15039000898B3C = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -431,10 +443,9 @@
 			};
 			buildConfigurationList = 00FB32C219661A860060AF33 /* Build configuration list for PBXProject "MPMessagePack" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -579,7 +590,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.rel.$(PRODUCT_NAME:rfc1034identifier)";
@@ -611,7 +626,11 @@
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.rel.$(PRODUCT_NAME:rfc1034identifier)";
@@ -629,13 +648,21 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MPMessagePackTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "rel.me.MPMessagePack-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 			};
 			name = Debug;
 		};
@@ -645,14 +672,22 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MPMessagePackTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "rel.me.MPMessagePack-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 			};
 			name = Release;
 		};
@@ -671,7 +706,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MPMessagePackTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.rel.$(PRODUCT_NAME:rfc1034identifier)";
@@ -692,7 +731,11 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MPMessagePackTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.rel.$(PRODUCT_NAME:rfc1034identifier)";
@@ -819,7 +862,11 @@
 				INFOPLIST_FILE = "MPMessagePack iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.rel.MPMessagePack-iOS";
 				PRODUCT_NAME = MPMessagePack;
@@ -850,7 +897,11 @@
 				INFOPLIST_FILE = "MPMessagePack iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.rel.MPMessagePack-iOS";
 				PRODUCT_NAME = MPMessagePack;
